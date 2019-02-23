@@ -1,4 +1,16 @@
-.vs
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.tss
+
+[Bb]in/
+[Dd]ebug/
+[Rr]elease/
+[Oo]bj/
+.vs/
+
+*.aps
 *.opensdf
 *.sbr
 *.obj
@@ -10,4 +22,3 @@
 *.pdb
 *.enc
 *.sdf
-*.VC.db
