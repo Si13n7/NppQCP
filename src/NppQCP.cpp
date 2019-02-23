@@ -172,6 +172,7 @@ void InitCommandMenu() {
 	BYTE* versionInfo = new BYTE[size];
 	wchar_t version[50];
 
+#pragma warning(suppress: 6388)
 	if (!GetFileVersionInfo(fileName, handle, size, versionInfo)) {
 		delete[] versionInfo;
 		lstrcpy(version, L"Unknown");
@@ -179,6 +180,7 @@ void InitCommandMenu() {
 
 	UINT    			len = 0;
 	VS_FIXEDFILEINFO*   vsfi = NULL;
+#pragma warning(suppress: 6001)
 	VerQueryValue(versionInfo, L"\\", (void**)&vsfi, &len);
 	wsprintf(version, L"%d.%d.%d",
 		HIWORD(vsfi->dwFileVersionMS),
@@ -736,6 +738,7 @@ void LoadRecentColor(){
 		color = ::GetPrivateProfileInt(_ini_section, key, 0, _ini_file_path);		
 		colors[i] = QuickColorPicker::RGBAColor(color);
 		swprintf_s(key, L"recent%d_a", i);
+#pragma warning(suppress: 6386)
 		color = ::GetPrivateProfileString(_ini_section, key, L"1", alpha, sizeof(alpha), _ini_file_path);
 		if (color > 0) {
 			colors[i].a = wcstof(alpha, nullptr);
